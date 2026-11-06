@@ -1,0 +1,85 @@
+@import '@fontsource/baskervville/400.css';
+@import '@fontsource/baskervville/400-italic.css';
+@import '@fontsource/baskervville/600.css';
+@import '@fontsource-variable/nunito-sans';
+@import 'tailwindcss';
+
+@theme {
+  /* Brand purple (#6F4F85 from the current site), stretched into a soft scale. */
+  --color-plum-50: #f8f4fb;
+  --color-plum-100: #efe7f5;
+  --color-plum-200: #ddcdea;
+  --color-plum-300: #c3a9d6;
+  --color-plum-400: #9f7fb5;
+  --color-plum-500: #84659b;
+  --color-plum-600: #6f4f85;
+  --color-plum-700: #5a3f6d;
+  --color-plum-800: #443155;
+  --color-plum-900: #2d2139;
+
+  /* The three figures in the logo: navy parent, periwinkle child, gold head. */
+  --color-navy: #282a6f;
+  --color-sky-50: #f1f3fb;
+  --color-sky-100: #e2e7f6;
+  --color-sky-200: #c5cce8;
+  --color-sky-500: #6f7fc4;
+  --color-sun: #eaad00;
+  --color-sun-50: #fff8e6;
+  --color-sun-100: #fdeec2;
+  --color-sun-600: #b07f00;
+  --color-rose-50: #fdf1f0;
+  --color-rose-100: #fbe0dd;
+
+  /* Warm neutrals keep the purple from feeling clinical. */
+  --color-paper: #fffbf7;
+  --color-ink: #231d2c;
+  --color-muted: #5f5868;
+  --color-line: #e9e3ec;
+
+  --font-serif: 'Baskervville', Georgia, serif;
+  --font-sans: 'Nunito Sans Variable', ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-paper font-sans text-ink antialiased;
+    font-size: 1.0625rem;
+    line-height: 1.65;
+  }
+  h1,
+  h2,
+  h3 {
+    @apply font-serif text-plum-900;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
+  }
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-plum-600 rounded-sm;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@utility container-page {
+  @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
+}
+
+@utility eyebrow {
+  @apply text-sm font-semibold tracking-wide text-plum-600;
+}
